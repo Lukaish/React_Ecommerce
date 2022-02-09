@@ -46,7 +46,7 @@ function Products() {
 
 
     function addShop() {
-      setProductsShop([...productsShop, product]);
+      setProductsShop([...productsShop, {...product, amount}]);
       
       navigate('/');
     }

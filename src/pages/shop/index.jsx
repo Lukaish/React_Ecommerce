@@ -41,13 +41,7 @@ function Shop() {
     setProductsShop(formatData);
   }, []);
 
-  // function removeInfoItem(index: Table.length) {
-  //   const itensCopy = Array.from(infos);
-
-  //   itensCopy.splice(index, 1);
-
-  //   setInfos(itensCopy);
-  // }
+  console.log(productsShop)
 
   return (
     <React.Fragment>
@@ -60,16 +54,20 @@ function Shop() {
           <TableHead>
             <StyledTableRow>
               <StyledTableCell>Item</StyledTableCell>
-              <StyledTableCell align="right">Valor Unitário</StyledTableCell>
-              <StyledTableCell align="right">Descrição</StyledTableCell>
+              <StyledTableCell align="space-evenly">Valor Unitário</StyledTableCell>
+              <StyledTableCell align="space-evenly">Descrição</StyledTableCell>
+              <StyledTableCell align="space-evenly">Quantidade</StyledTableCell>
+              <StyledTableCell align="space-evenly">Valor Total</StyledTableCell>
             </StyledTableRow>
           </TableHead>
           <TableBody>
             {productsShop.map((product) => (
               <StyledTableRow key={product.id}>
                 <StyledTableCell>{product.title}</StyledTableCell>
-                <StyledTableCell align="right">{product.valueFormatted}</StyledTableCell>
-                <StyledTableCell align="right">{product.description}</StyledTableCell>
+                <StyledTableCell align="space-evenly">{product.valueFormatted}</StyledTableCell>
+                <StyledTableCell align="space-evenly">{product.description}</StyledTableCell>
+                <StyledTableCell align="space-evenly">{product.amount}</StyledTableCell>
+                <StyledTableCell align="space-evenly">R$ {(product.amount * product.value).toFixed(2)}</StyledTableCell>
               </StyledTableRow>           
             ))}            
           </TableBody>
