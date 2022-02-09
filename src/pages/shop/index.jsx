@@ -44,7 +44,7 @@ function Shop() {
   console.log(productsShop)
 
   return (
-    <React.Fragment>
+    <>
       <Menu />
       <div>
         <Typography variant="h5" component="h2">
@@ -54,8 +54,8 @@ function Shop() {
           <TableHead>
             <StyledTableRow>
               <StyledTableCell>Item</StyledTableCell>
+                <StyledTableCell align="space-evenly">Descrição</StyledTableCell>
               <StyledTableCell align="space-evenly">Valor Unitário</StyledTableCell>
-              <StyledTableCell align="space-evenly">Descrição</StyledTableCell>
               <StyledTableCell align="space-evenly">Quantidade</StyledTableCell>
               <StyledTableCell align="space-evenly">Valor Total</StyledTableCell>
             </StyledTableRow>
@@ -64,8 +64,8 @@ function Shop() {
             {productsShop.map((product) => (
               <StyledTableRow key={product.id}>
                 <StyledTableCell>{product.title}</StyledTableCell>
-                <StyledTableCell align="space-evenly">{product.valueFormatted}</StyledTableCell>
                 <StyledTableCell align="space-evenly">{product.description}</StyledTableCell>
+                <StyledTableCell align="space-evenly">{product.valueFormatted}</StyledTableCell>     
                 <StyledTableCell align="space-evenly">{product.amount}</StyledTableCell>
                 <StyledTableCell align="space-evenly">R$ {(product.amount * product.value).toFixed(2)}</StyledTableCell>
               </StyledTableRow>           
@@ -74,9 +74,8 @@ function Shop() {
           
         </Table>
       </div>
-    </React.Fragment>
-  );
-  
+    </>
+  );  
 }
 
 export default Shop;
